@@ -2,6 +2,7 @@ package javaApplet;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import javax.swing.*;
 
 /**
@@ -19,7 +20,11 @@ public class JFrameRunner extends JFrame implements ActionListener {
 	//Roll: Button that the user clicks to roll that die type, with the given number of dice and total modifier.
 	JButton roll100, roll20, roll12, roll10, roll8, roll6, roll4, roll3;
 	//Results: Scrolling text field for the dice results.
-	JTextField results;
+	JTextArea results;
+	JScrollPane scroll;
+	
+	//Random: Returns the result from the "dice rolls".
+	Random rand = new Random();
 		
 	//Various JPanels to help with layout
 	JPanel window, inputField, outputField;
@@ -50,15 +55,25 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		modifier3 = new JTextField("0");
 		
 		roll100 = new JButton("Roll");
+		roll100.addActionListener(this);
 		roll20 = new JButton("Roll");
+		roll20.addActionListener(this);
 		roll12 = new JButton("Roll");
+		roll12.addActionListener(this);
 		roll10 = new JButton("Roll");
+		roll10.addActionListener(this);
 		roll8 = new JButton("Roll");
+		roll8.addActionListener(this);
 		roll6 = new JButton("Roll");
+		roll6.addActionListener(this);
 		roll4 = new JButton("Roll");
+		roll4.addActionListener(this);
 		roll3 = new JButton("Roll");
+		roll3.addActionListener(this);
 		
-		results = new JTextField("--------------------\nThe results will appear in this text field, with the newest rolls on top.");
+		results = new JTextArea("--------------------\nThe results will appear in this text field,\nwith the newest rolls on the bottom.");
+		results.setEditable(false);
+		scroll = new JScrollPane (results, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		//Add the input and output objects to their respective containers (JPanel)
 		window = new JPanel();
@@ -82,7 +97,78 @@ public class JFrameRunner extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
+		if(e.getSource() == roll100) { //If the button for rolling the d100 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number100.getText()); j++) {
+				dice += rand.nextInt(100) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier100.getText());
+			String result = number100.getText() + "d100 + " + modifier100.getText() + "\n= " + dice + " + " + modifier100.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
+		if(e.getSource() == roll20) { //If the button for rolling the d20 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number20.getText()); j++) {
+				dice += rand.nextInt(20) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier20.getText());
+			String result = number20.getText() + "d20 + " + modifier20.getText() + "\n= " + dice + " + " + modifier20.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
+		if(e.getSource() == roll12) { //If the button for rolling the d12 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number12.getText()); j++) {
+				dice += rand.nextInt(12) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier12.getText());
+			String result = number12.getText() + "d12 + " + modifier12.getText() + "\n= " + dice + " + " + modifier12.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
+		if(e.getSource() == roll10) { //If the button for rolling the d10 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number10.getText()); j++) {
+				dice += rand.nextInt(10) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier10.getText());
+			String result = number10.getText() + "d10 + " + modifier10.getText() + "\n= " + dice + " + " + modifier10.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
+		if(e.getSource() == roll8) { //If the button for rolling the d8 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number8.getText()); j++) {
+				dice += rand.nextInt(8) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier8.getText());
+			String result = number8.getText() + "d8 + " + modifier8.getText() + "\n= " + dice + " + " + modifier8.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
+		if(e.getSource() == roll6) { //If the button for rolling the d6 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number6.getText()); j++) {
+				dice += rand.nextInt(6) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier6.getText());
+			String result = number6.getText() + "d6 + " + modifier6.getText() + "\n= " + dice + " + " + modifier6.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
+		if(e.getSource() == roll4) { //If the button for rolling the d4 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number4.getText()); j++) {
+				dice += rand.nextInt(4) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier4.getText());
+			String result = number4.getText() + "d4 + " + modifier4.getText() + "\n= " + dice + " + " + modifier4.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
+		if(e.getSource() == roll3) { //If the button for rolling the d3 has been pressed.
+			int dice = 0;
+			for(int j = 0; j < Integer.parseInt(number3.getText()); j++) {
+				dice += rand.nextInt(3) + 1;
+			}
+			int total = dice + Integer.parseInt(modifier3.getText());
+			String result = number3.getText() + "d3 + " + modifier3.getText() + "\n= " + dice + " + " + modifier3.getText() + "\n= " + total + ".";
+			results.setText(results.getText() + "\n\n" + result);
+		}
 	}
 	
 	public void doLayoutWork() {
@@ -171,6 +257,20 @@ public class JFrameRunner extends JFrame implements ActionListener {
 							.addComponent(number3)
 							.addComponent(modifier3)
 							.addComponent(roll3))
+		);
+		
+		//Organize the output layout
+		GroupLayout outputLayout = new GroupLayout(outputField);
+		outputField.setLayout(outputLayout);
+		outputLayout.setAutoCreateGaps(true);
+		outputLayout.setAutoCreateContainerGaps(true);
+		outputLayout.setHorizontalGroup(
+				outputLayout.createSequentialGroup()
+					.addComponent(scroll)
+		);
+		outputLayout.setVerticalGroup(
+				outputLayout.createSequentialGroup()
+					.addComponent(scroll)
 		);
 	}
 }

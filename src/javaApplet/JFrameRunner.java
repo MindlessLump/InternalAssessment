@@ -1,5 +1,6 @@
 package javaApplet;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -60,6 +61,9 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		modifier4 = new JTextField("0");
 		modifier3 = new JTextField("0");
 		
+		number100.setPreferredSize(new Dimension(48, 24));
+		modifier100.setPreferredSize(new Dimension(48, 24));
+		
 		roll100 = new JButton("Roll");
 		roll20 = new JButton("Roll");
 		roll12 = new JButton("Roll");
@@ -83,6 +87,24 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		scroll = new JScrollPane (results, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		//Add images and supplementary text.
+		die100 = new JLabel("d100");
+		die20 = new JLabel("d20");
+		die12 = new JLabel("d12");
+		die10 = new JLabel("d10");
+		die8 = new JLabel("d8");
+		die6 = new JLabel("d6");
+		die4 = new JLabel("d4");
+		die3 = new JLabel("d3");
+		
+		mod100 = new JLabel("+");
+		mod20 = new JLabel("+");
+		mod12 = new JLabel("+");
+		mod10 = new JLabel("+");
+		mod8 = new JLabel("+");
+		mod6 = new JLabel("+");
+		mod4 = new JLabel("+");
+		mod3 = new JLabel("+");
+		
 		img100 = new JLabel();
 		img20 = new JLabel();
 		img12 = new JLabel();
@@ -272,6 +294,24 @@ public class JFrameRunner extends JFrame implements ActionListener {
 							.addComponent(number4)
 							.addComponent(number3))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(die100)
+							.addComponent(die20)
+							.addComponent(die12)
+							.addComponent(die10)
+							.addComponent(die8)
+							.addComponent(die6)
+							.addComponent(die4)
+							.addComponent(die3))
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(mod100)
+							.addComponent(mod20)
+							.addComponent(mod12)
+							.addComponent(mod10)
+							.addComponent(mod8)
+							.addComponent(mod6)
+							.addComponent(mod4)
+							.addComponent(mod3))
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 							.addComponent(modifier100)
 							.addComponent(modifier20)
 							.addComponent(modifier12)
@@ -292,44 +332,60 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		);
 		inputLayout.setVerticalGroup(
 				inputLayout.createSequentialGroup()
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img100)
 							.addComponent(number100)
+							.addComponent(die100)
+							.addComponent(mod100)
 							.addComponent(modifier100)
 							.addComponent(roll100))
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img20)
 							.addComponent(number20)
+							.addComponent(die20)
+							.addComponent(mod20)
 							.addComponent(modifier20)
 							.addComponent(roll20))
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img12)
 							.addComponent(number12)
+							.addComponent(die12)
+							.addComponent(mod12)
 							.addComponent(modifier12)
 							.addComponent(roll12))
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img10)
 							.addComponent(number10)
+							.addComponent(die10)
+							.addComponent(mod10)
 							.addComponent(modifier10)
 							.addComponent(roll10))
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img8)
 							.addComponent(number8)
+							.addComponent(die8)
+							.addComponent(mod8)
 							.addComponent(modifier8)
 							.addComponent(roll8))
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img6)
 							.addComponent(number6)
+							.addComponent(die6)
+							.addComponent(mod6)
 							.addComponent(modifier6)
 							.addComponent(roll6))
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img4)
 							.addComponent(number4)
+							.addComponent(die4)
+							.addComponent(mod4)
 							.addComponent(modifier4)
 							.addComponent(roll4))
-					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
 							.addComponent(img3)
 							.addComponent(number3)
+							.addComponent(die3)
+							.addComponent(mod3)
 							.addComponent(modifier3)
 							.addComponent(roll3))
 		);

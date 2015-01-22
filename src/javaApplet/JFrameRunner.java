@@ -3,6 +3,7 @@ package javaApplet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+
 import javax.swing.*;
 
 /**
@@ -25,7 +26,12 @@ public class JFrameRunner extends JFrame implements ActionListener {
 	
 	//Random: Returns the result from the "dice rolls".
 	Random rand = new Random();
-		
+	
+	//Various JLabels for text and images
+	JLabel die100, die20, die12, die10, die8, die6, die4, die3;
+	JLabel mod100, mod20, mod12, mod10, mod8, mod6, mod4, mod3;
+	JLabel img100, img20, img12, img10, img8, img6, img4, img3;
+	
 	//Various JPanels to help with layout
 	JPanel window, inputField, outputField;
 	
@@ -55,25 +61,77 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		modifier3 = new JTextField("0");
 		
 		roll100 = new JButton("Roll");
-		roll100.addActionListener(this);
 		roll20 = new JButton("Roll");
-		roll20.addActionListener(this);
 		roll12 = new JButton("Roll");
-		roll12.addActionListener(this);
 		roll10 = new JButton("Roll");
-		roll10.addActionListener(this);
 		roll8 = new JButton("Roll");
-		roll8.addActionListener(this);
 		roll6 = new JButton("Roll");
-		roll6.addActionListener(this);
 		roll4 = new JButton("Roll");
-		roll4.addActionListener(this);
 		roll3 = new JButton("Roll");
+
+		roll100.addActionListener(this);
+		roll20.addActionListener(this);
+		roll12.addActionListener(this);
+		roll10.addActionListener(this);
+		roll8.addActionListener(this);
+		roll6.addActionListener(this);
+		roll4.addActionListener(this);
 		roll3.addActionListener(this);
 		
-		results = new JTextArea("--------------------\nThe results will appear in this text field,\nwith the newest rolls on the bottom.");
+		results = new JTextArea("The results will appear in this text field,\nwith the newest rolls on the bottom.\n--------------------");
 		results.setEditable(false);
 		scroll = new JScrollPane (results, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		
+		//Add images and supplementary text.
+		img100 = new JLabel();
+		img20 = new JLabel();
+		img12 = new JLabel();
+		img10 = new JLabel();
+		img8 = new JLabel();
+		img6 = new JLabel();
+		img4 = new JLabel();
+		img3 = new JLabel();
+		
+		ImageIcon d100 = new ImageIcon("src/d100.jpg");
+		if(d100 != null) {
+			img100.setIcon(d100);
+			img100.setText("");
+		}
+		ImageIcon d20 = new ImageIcon("src/d20.jpg");
+		if(d20 != null) {
+			img20.setIcon(d20);
+			img20.setText("");
+		}
+		ImageIcon d12 = new ImageIcon("src/d12.jpg");
+		if(d12 != null) {
+			img12.setIcon(d12);
+			img12.setText("");
+		}
+		ImageIcon d10 = new ImageIcon("src/d10.jpg");
+		if(d10 != null) {
+			img10.setIcon(d10);
+			img10.setText("");
+		}
+		ImageIcon d8 = new ImageIcon("src/d8.jpg");
+		if(d8 != null) {
+			img8.setIcon(d8);
+			img8.setText("");
+		}
+		ImageIcon d6 = new ImageIcon("src/d6.jpg");
+		if(d6 != null) {
+			img6.setIcon(d6);
+			img6.setText("");
+		}
+		ImageIcon d4 = new ImageIcon("src/d4.jpg");
+		if(d4 != null) {
+			img4.setIcon(d4);
+			img4.setText("");
+		}
+		ImageIcon d3 = new ImageIcon("src/d3.jpg");
+		if(d3 != null) {
+			img3.setIcon(d3);
+			img3.setText("");
+		}
 		
 		//Add the input and output objects to their respective containers (JPanel)
 		window = new JPanel();
@@ -196,6 +254,15 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		inputLayout.setHorizontalGroup(
 				inputLayout.createSequentialGroup()
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img100)
+							.addComponent(img20)
+							.addComponent(img12)
+							.addComponent(img10)
+							.addComponent(img8)
+							.addComponent(img6)
+							.addComponent(img4)
+							.addComponent(img3))
+					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 							.addComponent(number100)
 							.addComponent(number20)
 							.addComponent(number12)
@@ -226,34 +293,42 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		inputLayout.setVerticalGroup(
 				inputLayout.createSequentialGroup()
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img100)
 							.addComponent(number100)
 							.addComponent(modifier100)
 							.addComponent(roll100))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img20)
 							.addComponent(number20)
 							.addComponent(modifier20)
 							.addComponent(roll20))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img12)
 							.addComponent(number12)
 							.addComponent(modifier12)
 							.addComponent(roll12))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img10)
 							.addComponent(number10)
 							.addComponent(modifier10)
 							.addComponent(roll10))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img8)
 							.addComponent(number8)
 							.addComponent(modifier8)
 							.addComponent(roll8))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img6)
 							.addComponent(number6)
 							.addComponent(modifier6)
 							.addComponent(roll6))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img4)
 							.addComponent(number4)
 							.addComponent(modifier4)
 							.addComponent(roll4))
 					.addGroup(inputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(img3)
 							.addComponent(number3)
 							.addComponent(modifier3)
 							.addComponent(roll3))

@@ -24,6 +24,8 @@ public class JFrameRunner extends JFrame implements ActionListener {
 	//Results: Scrolling text field for the dice results.
 	JTextArea results;
 	JScrollPane scroll;
+	//Clear and reset: Clears fields and output.
+	JButton clear, reset;
 	
 	//Random: Returns the result from the "dice rolls".
 	Random rand = new Random();
@@ -85,6 +87,13 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		results = new JTextArea("The results will appear in this text field,\nwith the newest rolls on the bottom.\n--------------------");
 		results.setEditable(false);
 		scroll = new JScrollPane (results, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		
+		//Add clear and reset buttons.
+		clear = new JButton("Clear");
+		reset = new JButton("Reset");
+		
+		clear.addActionListener(this);
+		reset.addActionListener(this);
 		
 		//Add images and supplementary text.
 		die100 = new JLabel("d100");
@@ -249,6 +258,28 @@ public class JFrameRunner extends JFrame implements ActionListener {
 			String result = number3.getText() + "d3 + " + modifier3.getText() + "\n= " + dice + " + " + modifier3.getText() + "\n= " + total + ".";
 			results.setText(results.getText() + "\n\n" + result);
 		}
+		if(e.getSource() == clear) { //If the button for clearing the output field has been pressed.
+			results.setText("The results will appear in this text field,\nwith the newest rolls on the bottom.\n--------------------");
+		}
+		if(e.getSource() == reset) { //If the button for resetting the input fields has been pressed.
+			number100.setText("1");
+			number20.setText("1");
+			number12.setText("1");
+			number10.setText("1");
+			number8.setText("1");
+			number6.setText("1");
+			number4.setText("1");
+			number3.setText("1");
+			
+			modifier100.setText("0");
+			modifier20.setText("0");
+			modifier12.setText("0");
+			modifier10.setText("0");
+			modifier8.setText("0");
+			modifier6.setText("0");
+			modifier4.setText("0");
+			modifier3.setText("0");
+		}
 	}
 	
 	public void doLayoutWork() {
@@ -263,7 +294,7 @@ public class JFrameRunner extends JFrame implements ActionListener {
 					.addComponent(outputField)
 		);
 		windowLayout.setVerticalGroup(
-				windowLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				windowLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 					.addComponent(inputField)
 					.addComponent(outputField)
 		);
@@ -328,7 +359,8 @@ public class JFrameRunner extends JFrame implements ActionListener {
 							.addComponent(roll8)
 							.addComponent(roll6)
 							.addComponent(roll4)
-							.addComponent(roll3))
+							.addComponent(roll3)
+							.addComponent(reset))
 		);
 		inputLayout.setVerticalGroup(
 				inputLayout.createSequentialGroup()
@@ -388,6 +420,7 @@ public class JFrameRunner extends JFrame implements ActionListener {
 							.addComponent(mod3)
 							.addComponent(modifier3)
 							.addComponent(roll3))
+					.addComponent(reset)
 		);
 		
 		//Organize the output layout
@@ -397,11 +430,14 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		outputLayout.setAutoCreateContainerGaps(true);
 		outputLayout.setHorizontalGroup(
 				outputLayout.createSequentialGroup()
-					.addComponent(scroll)
+					.addGroup(outputLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addComponent(scroll)
+							.addComponent(clear))
 		);
 		outputLayout.setVerticalGroup(
 				outputLayout.createSequentialGroup()
 					.addComponent(scroll)
+					.addComponent(clear)
 		);
 	}
 }

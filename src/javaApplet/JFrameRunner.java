@@ -3,6 +3,7 @@ package javaApplet;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.Random;
 
 import javax.swing.*;
@@ -153,42 +154,50 @@ public class JFrameRunner extends JFrame implements ActionListener {
 		modifierTitle = new JLabel("Modifier");
 		resTitle = new JLabel("Results");
 		
-		ImageIcon d100 = new ImageIcon("src/d100.jpg");
+		URL url100 = JFrameRunner.class.getResource("/resources/d100.jpg");
+		ImageIcon d100 = new ImageIcon(url100);
 		if(d100 != null) {
 			img100.setIcon(d100);
 			img100.setText("");
 		}
-		ImageIcon d20 = new ImageIcon("src/d20.jpg");
+		URL url20 = JFrameRunner.class.getResource("/resources/d20.jpg");
+		ImageIcon d20 = new ImageIcon(url20);
 		if(d20 != null) {
 			img20.setIcon(d20);
 			img20.setText("");
 		}
-		ImageIcon d12 = new ImageIcon("src/d12.jpg");
+		URL url12 = JFrameRunner.class.getResource("/resources/d12.jpg");
+		ImageIcon d12 = new ImageIcon(url12);
 		if(d12 != null) {
 			img12.setIcon(d12);
 			img12.setText("");
 		}
-		ImageIcon d10 = new ImageIcon("src/d10.jpg");
+		URL url10 = JFrameRunner.class.getResource("/resources/d10.jpg");
+		ImageIcon d10 = new ImageIcon(url10);
 		if(d10 != null) {
 			img10.setIcon(d10);
 			img10.setText("");
 		}
-		ImageIcon d8 = new ImageIcon("src/d8.jpg");
+		URL url8 = JFrameRunner.class.getResource("/resources/d8.jpg");
+		ImageIcon d8 = new ImageIcon(url8);
 		if(d8 != null) {
 			img8.setIcon(d8);
 			img8.setText("");
 		}
-		ImageIcon d6 = new ImageIcon("src/d6.jpg");
+		URL url6 = JFrameRunner.class.getResource("/resources/d6.jpg");
+		ImageIcon d6 = new ImageIcon(url6);
 		if(d6 != null) {
 			img6.setIcon(d6);
 			img6.setText("");
 		}
-		ImageIcon d4 = new ImageIcon("src/d4.jpg");
+		URL url4 = JFrameRunner.class.getResource("/resources/d4.jpg");
+		ImageIcon d4 = new ImageIcon(url4);
 		if(d4 != null) {
 			img4.setIcon(d4);
 			img4.setText("");
 		}
-		ImageIcon d3 = new ImageIcon("src/d3.jpg");
+		URL url3 = JFrameRunner.class.getResource("/resources/d3.jpg");
+		ImageIcon d3 = new ImageIcon(url3);
 		if(d3 != null) {
 			img3.setIcon(d3);
 			img3.setText("");

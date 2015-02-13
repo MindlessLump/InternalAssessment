@@ -1,6 +1,5 @@
 1. Finish adding cosmetics:
     DONE! - {Image} [NUMBER] {d# + } [MODIFIER] [ROLL BUTTON]
-    - Change results JTextArea to a JTextPane for bolding/coloring in output for clearer distinction.
 
 2. Functionality:
     DONE! - Add a reset button to reset all fields

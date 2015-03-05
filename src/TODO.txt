@@ -1,6 +1,0 @@
-1. Finish adding cosmetics:
-    DONE! - {Image} [NUMBER] {d# + } [MODIFIER] [ROLL BUTTON]
-
-2. Functionality:
-    DONE! - Add a reset button to reset all fields
-    DONE! - Add a clear button to clear out the results panel.
